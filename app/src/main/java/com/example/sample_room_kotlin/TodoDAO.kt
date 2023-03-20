@@ -1,11 +1,12 @@
 package com.example.sample_room_kotlin
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
 interface TodoDAO {
     @Query("SELECT * FROM table_todo")
-    fun getAll(): List<TodoEntity>
+    fun getAll(): LiveData<List<TodoEntity>>
 
     @Insert
     fun insertTodo(todo: TodoEntity)
